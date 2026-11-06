@@ -32,11 +32,21 @@ sidebar_position: 10
 
 **示例（GitHub Copilot）：**
 
-直接将本仓克隆到项目路径：
+本仓库的 `skills/` 需要落到工作区的 `.github/skills/` 下。`.github` 目录通常已存在（存放 workflows），直接 `git clone` 到非空目录会失败，因此先克隆到临时目录再拷贝：
 
 ```bash
-git clone https://gitee.com/spacemit-openharmony/oh-skill.git .github
+git clone https://gitee.com/spacemit-openharmony/oh-skill.git /tmp/oh-skill
+mkdir -p .github/skills
+cp -r /tmp/oh-skill/skills/. .github/skills/
 ```
+
+也可以改用软链接，便于后续 `git pull` 更新：
+
+```bash
+ln -s /tmp/oh-skill/skills .github/skills
+```
+
+若使用 Kiro 或 Cursor，把上面的 `.github` 换成 `.kiro` 或 `.cursor` 即可。
 
 ---
 
