@@ -363,8 +363,3 @@ oh-skill/
         └── v2d_perf_test             # 测试二进制
 ```
 
----
-
-## 站内相关文档
-
-- [Camera 调试](1_camera_skill.md)
